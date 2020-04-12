@@ -10,7 +10,7 @@ const Logger = require('../../lib/logger');
 const log = new Logger();
 const router = new express.Router();
 
-const MAX_NUM_SECTIONS = 9999;
+const MAX_NUM_SECTIONS = Infinity;
 
 function respondWithError(res, error) {
     const validStatus = { 404: true, 400: true, 500: true };
