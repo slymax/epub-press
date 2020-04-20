@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const custom_config = require('./config.json');
 
 const Scheduler = require('./lib/scheduler');
 const ScheduledJobs = require('./lib/scheduled-jobs');
@@ -52,12 +53,14 @@ const allowCrossDomain = (req, res, next) => {
 
 app.use(allowCrossDomain);
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/api/books', booksBeta);
-app.use('/api/v1/books', booksV1);
-app.use('/api/version', version);
-app.use('/api/v1/version', version);
+const custom_root = custom_config.root ? '/' + custom_config.root : '';
+
+app.use(custom_root + '/', index);
+app.use(custom_root + '/users', users);
+app.use(custom_root + '/api/books', booksBeta);
+app.use(custom_root + '/api/v1/books', booksV1);
+app.use(custom_root + '/api/version', version);
+app.use(custom_root + '/api/v1/version', version);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

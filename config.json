@@ -1,3 +1,4 @@
 {
-    "images": false
+    "images": false,
+    "root": "epub-press"
 }
