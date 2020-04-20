@@ -55,8 +55,6 @@ app.use(allowCrossDomain);
 
 const custom_root = custom_config.root ? '/' + custom_config.root : '';
 
-app.use(custom_root + '/', index);
-app.use(custom_root + '/users', users);
 app.use(custom_root + '/api/books', booksBeta);
 app.use(custom_root + '/api/v1/books', booksV1);
 app.use(custom_root + '/api/version', version);
