@@ -55,10 +55,10 @@ app.use(allowCrossDomain);
 
 const custom_root = custom_config.root ? '/' + custom_config.root : '';
 
-app.use(custom_root + '/api/books', booksBeta);
-app.use(custom_root + '/api/v1/books', booksV1);
-app.use(custom_root + '/api/version', version);
-app.use(custom_root + '/api/v1/version', version);
+app.use(custom_root + '/books', booksBeta);
+app.use(custom_root + '/v1/books', booksV1);
+app.use(custom_root + '/version', version);
+app.use(custom_root + '/v1/version', version);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
